@@ -1,3 +1,5 @@
+console.log("Project: ALAB-308A_3_1-Promises_and_AsyncAwait");
+
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
