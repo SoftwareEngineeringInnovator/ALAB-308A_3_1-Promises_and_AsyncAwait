@@ -21,16 +21,25 @@ async function getUserData(id) {
   console.log("Database for user ID:", id, "is", selectedDatabase);
 
   // Select the database function using the user's id.
-  const basicInfo = await selectedDatabase(id);
+  // const basicInfo = await selectedDatabase(id);
 
   // Display user information.
-  console.log("Basic User Information:", basicInfo);
+  // console.log("Basic User Information:", basicInfo);
 
   // Select personal infromation from vault
-  const personalInfo = await vault(id); //--> returnedValue = personalInfo
+  // const personalInfo = await vault(id); //--> returnedValue = personalInfo
 
   // Display personal infromation from vault
-  console.log("Personal User Information:", personalInfo); //--> returnedValue = personalInfo
+  // console.log("Personal User Information:", personalInfo); //--> returnedValue = personalInfo
+
+  // implement Promise.all
+  const [basicInfo, personalInfo] = await Promise.all(
+    [selectedDatabase(id),
+    vault(id),
+  ]);
+console.log("Basic Info:", basicInfo);
+
+console.log("Personal Info:", personalInfo)
 }
 // run function
 getUserData(8);
