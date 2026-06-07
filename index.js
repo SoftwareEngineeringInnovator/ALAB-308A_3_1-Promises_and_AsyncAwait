@@ -14,7 +14,12 @@ async function getUserData(id) {
   // Get the database location by using their user id
 
   const databaseName = await central(id);
-  console.log("ID located in Database:", databaseName);
+  console.log("ID", id ,"located in Database:" , databaseName);
+
+  // Get the database function
+  const selectedDatabase = dbs[databaseName];
+  console.log("Database for user ID:",  id, "is", selectedDatabase);
+
 
 }
 // run function
