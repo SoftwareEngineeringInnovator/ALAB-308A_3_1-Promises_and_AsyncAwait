@@ -16,15 +16,6 @@ async function getUserData(id) {
   const databaseName = await central(id);
   console.log("ID located in Database:", databaseName);
 
-  // Get the database function
-  const selectedDatabase = dbs[databaseName];
-  console.log("Selected Database Function:", selectedDatabase);
-
-  // Invke the database using their user id
-  const basicInfo = await selectedDatabase(id);
-
-  //Disaplay the user information
-  console.log("User Info:", basicInfo);
 }
 // run function
 getUserData(8);
