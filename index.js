@@ -11,7 +11,8 @@ async function getUserData(id) {
     db3: db3
   };
 
-  // Get the database location by using their user id
+ try {
+    // Get the database location by using their user id
 
   const databaseName = await central(id);
   console.log("ID", id, "located in Database:", databaseName);
@@ -63,7 +64,16 @@ const user = {
 // Display user object
 console.log("Complete User:", user);
 
+// Return complete user object
+return user;
+
+  } catch (error) {
+    // Error message
+    console.log("Error:", error.message);
+
+    //Return
+    return Promise.reject(error);
+  }
 }
 // run function
 getUserData(8);
-
