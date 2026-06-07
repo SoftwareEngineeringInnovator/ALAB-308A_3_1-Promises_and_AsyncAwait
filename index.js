@@ -20,7 +20,11 @@ async function getUserData(id) {
   const selectedDatabase = dbs[databaseName];
   console.log("Database for user ID:",  id, "is", selectedDatabase);
 
+  // Select the database function using the user's id.
+  const basicInfo = await selectedDatabase(id);
 
+  // Display user information.
+  console.log("Basic User Information:", basicInfo);
 }
 // run function
 getUserData(8);
