@@ -40,6 +40,29 @@ async function getUserData(id) {
 console.log("Basic Info:", basicInfo);
 
 console.log("Personal Info:", personalInfo)
+
+// Create an user object
+const user = {
+    // Add ID
+    id: id,
+    // Add user name from the vault
+    name: personalInfo.name,
+    // Add user username from dbs
+    username: basicInfo.username,
+    // Add user email
+    email: personalInfo.email,
+    // Add user address
+    address: personalInfo.address,
+    //Add user phone number
+    phone: personalInfo.phone,
+    // Add user website
+    website: basicInfo.website,
+    // Add user company
+    company: basicInfo.company
+};
+// Display user object
+console.log("Complete User:", user);
+
 }
 // run function
 getUserData(8);
