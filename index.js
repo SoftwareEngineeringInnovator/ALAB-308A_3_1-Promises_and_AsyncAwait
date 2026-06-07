@@ -14,17 +14,23 @@ async function getUserData(id) {
   // Get the database location by using their user id
 
   const databaseName = await central(id);
-  console.log("ID", id ,"located in Database:" , databaseName);
+  console.log("ID", id, "located in Database:", databaseName);
 
   // Get the database function
   const selectedDatabase = dbs[databaseName];
-  console.log("Database for user ID:",  id, "is", selectedDatabase);
+  console.log("Database for user ID:", id, "is", selectedDatabase);
 
   // Select the database function using the user's id.
   const basicInfo = await selectedDatabase(id);
 
   // Display user information.
   console.log("Basic User Information:", basicInfo);
+
+  // Select personal infromation from vault
+  const personalInfo = await vault(id); //--> returnedValue = personalInfo
+
+  // Display personal infromation from vault
+  console.log("Personal User Information:", personalInfo); //--> returnedValue = personalInfo
 }
 // run function
 getUserData(8);
